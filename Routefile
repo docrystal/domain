@@ -47,4 +47,11 @@ hosted_zone "docrystal.org." do
       "docrystal.github.io"
     )
   end
+
+  rrset "doc.docrystal.org.", "CNAME" do
+    ttl 300
+    resource_records(
+      "global.prod.fastly.net"
+    )
+  end
 end
