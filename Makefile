@@ -1,10 +1,10 @@
-.PHONY: export env apply
+.PHONY: export apply diff
 
 export:
 	@bundle exec dotenv roadwork --target-zone=docrystal.org -e -o Routefile
 
-apply:
+diff:
 	@bundle exec dotenv roadwork --target-zone=docrystal.org -a --dry-run
 
-env:
-	@bundle exec dotenv env
+apply:
+	@bundle exec dotenv roadwork --target-zone=docrystal.org -a
