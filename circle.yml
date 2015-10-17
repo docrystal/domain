@@ -1,0 +1,10 @@
+test:
+  override:
+    - bundle exec roadwork --target-zone=docrystal.org -a --dry-run
+    - bundle exec roadwork --target-zone=docrystal.org -t
+
+deployment:
+  production:
+    branch: master
+    commands:
+      - bundle exec roadwork --target-zone=docrystal.org -a
