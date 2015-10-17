@@ -1,0 +1,43 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+hosted_zone "docrystal.org." do
+  rrset "docrystal.org.", "A" do
+    dns_name "s3-website-us-east-1.amazonaws.com."
+  end
+
+  rrset "docrystal.org.", "MX" do
+    ttl 300
+    resource_records(
+      "10 mxa.mailgun.org.",
+      "10 mxb.mailgun.org."
+    )
+  end
+
+  rrset "docrystal.org.", "TXT" do
+    ttl 300
+    resource_records(
+      "\"v=spf1 include:mailgun.org ~all\""
+    )
+  end
+
+  rrset "pic._domainkey.docrystal.org.", "TXT" do
+    ttl 300
+    resource_records(
+      "\"k=rsa; p=MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDWNMuD3y0T7hw0uV1zBX0SxRm9qimAlYJhldg6MGTpueyWu8T2Y45dt0DkSoFoTUywwgM8GGLwBOSh2jBUpFGE8xgAHfuHUb9nCQNYhkSdoxnS5XzxnzFuzQZ9PFLVbWXZ0gyFnrmnkASFV94EUW8YOHrkYjOkFT6OyNU1+prnPwIDAQAB\""
+    )
+  end
+
+  rrset "email.docrystal.org.", "CNAME" do
+    ttl 300
+    resource_records(
+      "mailgun.org"
+    )
+  end
+
+  rrset "www.docrystal.org.", "CNAME" do
+    ttl 300
+    resource_records(
+      "docrystal.herokuapp.com"
+    )
+  end
+end
