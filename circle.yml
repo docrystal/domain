@@ -1,0 +1,10 @@
+test:
+  override:
+    - make diff
+    - make test
+
+deployment:
+  production:
+    branch: master
+    commands:
+      - make apply
