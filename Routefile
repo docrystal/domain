@@ -40,4 +40,11 @@ hosted_zone "docrystal.org." do
       "docrystal.herokuapp.com"
     )
   end
+
+  rrset "info.docrystal.org.", "CNAME" do
+    ttl 300
+    resource_records(
+      "docrystal.github.io"
+    )
+  end
 end
