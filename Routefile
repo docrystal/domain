@@ -54,4 +54,11 @@ hosted_zone "docrystal.org." do
       "global.prod.fastly.net"
     )
   end
+
+  rrset "v2.docrystal.org.", "A" do
+    ttl 300
+    resource_records(
+      "162.243.184.188"
+    )
+  end
 end
