@@ -2,7 +2,10 @@
 # vi: set ft=ruby :
 hosted_zone "docrystal.org." do
   rrset "docrystal.org.", "A" do
-    dns_name "s3-website-us-east-1.amazonaws.com."
+    ttl 300
+    resource_records(
+      "162.243.184.188"
+    )
   end
 
   rrset "docrystal.org.", "MX" do
@@ -37,7 +40,7 @@ hosted_zone "docrystal.org." do
   rrset "www.docrystal.org.", "CNAME" do
     ttl 300
     resource_records(
-      "docrystal.herokuapp.com"
+      "docrystal.org"
     )
   end
 
@@ -52,6 +55,12 @@ hosted_zone "docrystal.org." do
     ttl 300
     resource_records(
       "global.prod.fastly.net"
+    )
+  end
+
+  rrset "v1.docrystal.org.", "A" do
+    resource_records(
+      "docrystal.herokuapp.com"
     )
   end
 
